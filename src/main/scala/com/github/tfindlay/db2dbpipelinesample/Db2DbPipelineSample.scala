@@ -25,17 +25,17 @@ object Db2DbPipelineSample {
 
   def buildDatabaseURL() : String = {
     // TODO Push configuration out to external file
-    val jdbcHostname = "<hostname>"
-    val jdbcPort = 1433
-    val jdbcDatabase = "<database>"
+    val jdbcHostname = "localhost"
+    val jdbcPort = 5432
+    val jdbcDatabase = "postgres"
 
     // Create the JDBC URL without passing in the user and password parameters.
     s"jdbc:postgresql://${jdbcHostname}:${jdbcPort}/${jdbcDatabase}"
   }
 
   def buildDatabaseProperties(): Properties = {
-    val jdbcUsername = "<username>"
-    val jdbcPassword = "<password>"
+    val jdbcUsername = "postgres"
+    val jdbcPassword = "mysecretpassword"
 
     // Create a Properties() object to hold the parameters.
     import java.util.Properties

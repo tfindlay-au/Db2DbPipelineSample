@@ -10,12 +10,21 @@ The transformation logic will be contained in Scala functions which can be teste
 
 This program should generate documentation via ScalaDoc to document what is happening.
 
+### Building
+```
+$ sbt package
+```
 
 ### Using
-This application will be a runnable JAR, alternatively it could be executed as a spark-submit application
+This application will be a runnable JAR, alternatively it could be executed as a spark-submit application.
+
+Before you get started you will need to start a database, in this case postgres and I would recommend running this in a docker container like so:
+`docker run -d --rm -e POSTGRES_PASSWORD=mysecretpassword -p5432:5432 -d postgres`
+
+
 ```
-$ java -jar ...
+$ java -jar ./target/scala-2.12/db2dbpipelinesample_2.12-0.1.jar
 or
-$ spark-submit ...
+$ spark-submit ./target/scala-2.12/db2dbpipelinesample_2.12-0.1.jar
 ```
 
