@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgresdb:
+    image: postgres:11.4
+    container_name: postgresdb
+    ports:
+      - 5432:5432
+    networks:
+      - dbpipeline
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+
+networks:
+  dbpipeline:

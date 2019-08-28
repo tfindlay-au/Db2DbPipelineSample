@@ -19,7 +19,7 @@ $ sbt package
 This application will be a runnable JAR, alternatively it could be executed as a spark-submit application.
 
 Before you get started you will need to start a database, in this case postgres and I would recommend running this in a docker container like so:
-`docker run -d --rm -e POSTGRES_PASSWORD=mysecretpassword -p5432:5432 -d postgres`
+`docker-compose up -d`
 
 
 ```
