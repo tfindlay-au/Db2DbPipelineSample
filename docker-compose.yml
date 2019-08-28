@@ -9,8 +9,6 @@ services:
       - ./build.sbt:/home/build.sbt
       - ~/.ivy2:/root/.ivy2
     entrypoint: bash -c "cd home && sbt run"
-    depends_on:
-      - datagen
     networks:
       - dbpipeline
 
@@ -23,23 +21,6 @@ services:
       - dbpipeline
     environment:
       - POSTGRES_PASSWORD=mysecretpassword
-
-  datagen:
-    build:
-      context: ./data
-    container_name: datagen
-    depends_on:
-      - postgresdb
-    volumes:
-      - ./data:/home
-    networks:
-      - dbpipeline
-    environment:
-      - GEN_ROWS=1000
-      - PG_HOST=postgresdb
-      - PG_USER=postgres
-      - PG_DATABASE=postgres
-      - PGPASSWORD=mysecretpassword
 
 networks:
   dbpipeline:
