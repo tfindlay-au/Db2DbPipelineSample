@@ -10,5 +10,18 @@ services:
     environment:
       - POSTGRES_PASSWORD=mysecretpassword
 
+  datagen:
+    build:
+      context: ./data
+    container_name: datagen
+    depends_on:
+      - postgresdb
+    volumes:
+      - ./data:/home
+    networks:
+      - dbpipeline
+    environment:
+      - GEN_ROWS=1000
+
 networks:
   dbpipeline:
