@@ -13,6 +13,21 @@ class TransformationsTest extends WordSpec with Matchers with DataFrameSuiteBase
       import spark.implicits._
 
       // Given an input data frame ...
+      val inputDf = Seq((15,"sad")).toDF("age","mood")
+
+      // When we call the function ...
+      val resultDataFrame = Transformations.withIsTeenager()(inputDf)
+
+      // Then the result should be ...
+      val expectedDf = Seq((15,"sad", true)).toDF("age","mood","is_teenager")
+      assertDataFrameEquals(expectedDf, resultDataFrame)
+    }
+    "indicate false if age is less than 13" in {
+      val spark = SparkSession.builder.getOrCreate()
+
+      import spark.implicits._
+
+      // Given an input data frame ...
       val inputDf = Seq((50,"sad")).toDF("age","mood")
 
       // When we call the function ...
@@ -22,11 +37,20 @@ class TransformationsTest extends WordSpec with Matchers with DataFrameSuiteBase
       val expectedDf = Seq((50,"sad", false)).toDF("age","mood","is_teenager")
       assertDataFrameEquals(expectedDf, resultDataFrame)
     }
-    "indicate false if age is less than 13" in {
-
-    }
     "indicate false if age is greater than 19" in {
+      val spark = SparkSession.builder.getOrCreate()
 
+      import spark.implicits._
+
+      // Given an input data frame ...
+      val inputDf = Seq((10,"sad")).toDF("age","mood")
+
+      // When we call the function ...
+      val resultDataFrame = Transformations.withIsTeenager()(inputDf)
+
+      // Then the result should be ...
+      val expectedDf = Seq((10,"sad", false)).toDF("age","mood","is_teenager")
+      assertDataFrameEquals(expectedDf, resultDataFrame)
     }
   }
 
