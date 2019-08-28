@@ -22,6 +22,10 @@ services:
       - dbpipeline
     environment:
       - GEN_ROWS=1000
+      - PG_HOST=postgresdb
+      - PG_USER=postgres
+      - PG_DATABASE=postgres
+      - PGPASSWORD=mysecretpassword
 
 networks:
   dbpipeline:
