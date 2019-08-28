@@ -21,4 +21,11 @@ libraryDependencies += "com.holdenkarau" %% "spark-testing-base" % "2.4.3_0.12.0
 
 //--------------------
 // JDBC Connectivity
-libraryDependencies += "org.postgresql" % "postgresql" % "42.2.6"
+libraryDependencies += "org.postgresql" % "postgresql" % "42.2.6" % run
+
+//--------------------
+// Configure Assembly plugin
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}

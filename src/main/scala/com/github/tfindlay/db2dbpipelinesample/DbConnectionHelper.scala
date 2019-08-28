@@ -10,7 +10,9 @@ object DbConnectionHelper {
     val jdbcDatabase = "postgres"
 
     // Create the JDBC URL without passing in the user and password parameters.
-    s"jdbc:postgresql://${jdbcHostname}:${jdbcPort}/${jdbcDatabase}"
+    val dbURL = s"jdbc:postgresql://${jdbcHostname}:${jdbcPort}/${jdbcDatabase}"
+    print(s"Connecting to ${dbURL}")
+    dbURL
   }
 
   def buildDatabaseProperties(): Properties = {

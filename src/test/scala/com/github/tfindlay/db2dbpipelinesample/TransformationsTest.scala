@@ -3,7 +3,7 @@ package com.github.tfindlay.db2dbpipelinesample
 import com.holdenkarau.spark.testing.DataFrameSuiteBase
 import org.scalatest.{Matchers, WordSpec}
 
-class TransformationsTest extends WordSpec with Matchers with DataFrameSuiteBase{
+class TransformationsTest extends WordSpec with Matchers with DataFrameSuiteBase {
 
   "withIsTeenager" must {
     "indicate true if age is between 13 to 19" in {

@@ -12,7 +12,7 @@ This program should generate documentation via ScalaDoc to document what is happ
 
 ### Building
 ```
-$ sbt package
+$ sbt assembly
 ```
 
 ### Using
@@ -21,9 +21,8 @@ This application will be a runnable JAR, alternatively it could be executed as a
 Before you get started you will need to start a database, in this case postgres and I would recommend running this in a docker container like so:
 `docker-compose up -d`
 
-
 ```
-$ java -jar ./target/scala-2.12/db2dbpipelinesample_2.12-0.1.jar
+$ java -jar ./target/scala-2.12/Db2DbPipelineSample-assembly-0.1.jar
 or
 $ spark-submit ./target/scala-2.12/db2dbpipelinesample_2.12-0.1.jar
 ```
