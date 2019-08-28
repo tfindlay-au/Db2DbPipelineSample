@@ -69,3 +69,20 @@ $ sbt package
 $ spark-submit ./target/scala-2.12/db2dbpipelinesample_2.12-0.1.jar
 ```
 *Note* : This code is not (yet) compatible with Java > 1.8 due to dependencies with the testing framework. This works fine in the docker container, but may not work on other systems with a newer JRE. 
+
+### Developing
+This is a very simple project for demonstration purposes only, the key elements are:
+* Db2DbPipelineSample - Main program control and chains the Spark read, transformations and write together.
+* DbConnectionHelper - Separates out utility methods to produce database connection URL and properties. May need to be adapted if a different databse driver is used.
+* SampleDataGen - Integrated data generator. Could be configured to optionally run once only and would not be needed in a real scenario.
+* Transformations - Contains the business rules used to support the transformation
+
+##### Future work
+Some ideas include:
+* More complex transformations - Aggregations + Joins
+* Extraction configuration into external files
+* Consider adapting the chain to process streaming data feed
+* Design consideration may include the volume of data needed to be transferred from source to target systems
+
+
+
