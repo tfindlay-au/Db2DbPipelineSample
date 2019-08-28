@@ -21,7 +21,7 @@ conn.commit()
 for _ in range(rows_to_generate):
     age = random.randint(13,99)
     mood = random.choice(moods)
-    cur.execute(f"INSERT INTO mood_table VALUES ({age}, '{mood}')")
+    cur.execute("INSERT INTO mood_table VALUES (%s, %s)", age, mood)
 conn.commit()
 
 print('Insert complete')
