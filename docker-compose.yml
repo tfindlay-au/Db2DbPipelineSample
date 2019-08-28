@@ -1,5 +1,19 @@
 version: '3'
 services:
+  datapipeline:
+    image: mozilla/sbt
+    container_name: datapipeline
+    volumes:
+      - ./src:/home/src
+      - ./project:/home/project
+      - ./build.sbt:/home/build.sbt
+      - ~/.ivy2:/root/.ivy2
+    entrypoint: bash -c "cd home && sbt run"
+    depends_on:
+      - datagen
+    networks:
+      - dbpipeline
+
   postgresdb:
     image: postgres:11.4
     container_name: postgresdb

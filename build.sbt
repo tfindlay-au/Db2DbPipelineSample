@@ -21,7 +21,7 @@ libraryDependencies += "com.holdenkarau" %% "spark-testing-base" % "2.4.3_0.12.0
 
 //--------------------
 // JDBC Connectivity
-libraryDependencies += "org.postgresql" % "postgresql" % "42.2.6" % run
+libraryDependencies += "org.postgresql" % "postgresql" % "42.2.6"
 
 //--------------------
 // Configure Assembly plugin

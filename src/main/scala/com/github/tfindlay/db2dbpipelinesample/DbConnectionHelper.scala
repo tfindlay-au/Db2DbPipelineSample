@@ -5,7 +5,7 @@ import java.util.Properties
 object DbConnectionHelper {
   def buildDatabaseURL() : String = {
     // TODO Push configuration out to external file
-    val jdbcHostname = "localhost"
+    val jdbcHostname = "postgresdb"
     val jdbcPort = 5432
     val jdbcDatabase = "postgres"
 
